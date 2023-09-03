@@ -28,18 +28,12 @@
 
         <!-- Header-widget -->
         <div class="widget">
-            <div class="widget-item">
-               <h2>124</h2>
-               <p>Happy Clients</p>
-            </div>
-            <div class="widget-item">
-               <h2>456</h2>
-                <p>Project Completed</p>
-            </div>
-            <div class="widget-item">
-                <h2>789</h2>
-                <p>Awards Won</p>
-            </div>
+            {% for fact in facts %}
+                <div class="widget-item">
+                    <h2> {{ fact.number }} </h2>
+                    <p> {{ fact.title }} </p>
+                </div>
+            {% endfor %}    
         </div>
     </header>
     <!-- End of Page Header -->
@@ -49,14 +43,17 @@
         <div class="container mt-5">
             <div class="row text-center text-md-left">
                 <div class="col-md-3">
-                    <img src="assets/imgs/avatar.jpg" alt="" class="img-thumbnail mb-4">
+                    <img src="{{ personal.personal_photo.url }}" alt="{{ personal.name }}" class="img-thumbnail mb-4">
                 </div>
                 <div class="pl-md-4 col-md-9">
-                    <h6 class="title">James Smith</h6>
-                    <p class="subtitle">UI/UX Designer</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, pariatur, aperiam aut autem voluptas odit. Odio ducimus delectus totam sed aliquam sequi praesentium mollitia, illum repudiandae quidem quod, magni magnam.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, eius, nam. Quo praesentium qui temporibus voluptatum, facilis aliquid eligendi fugiat beatae neque inventore non. Laborum repellendus consequatur ullam voluptatum asperiores.</p>
-                    <button class="btn btn-primary rounded mt-3">DOWNLOAD CV</button>                   
+                    <h6 class="title"> {{ personal.name }} </h6>
+                    <p class="subtitle"> {{ personal.career }} </p>
+                    <p> {{ personal.bio }} </p>
+                    <a target="_blank" alt="{{ cv.title }}" href="{{ cv.cv.url }}">
+                        <button class="btn btn-primary rounded mt-3">
+                            DOWNLOAD CV
+                        </button>
+                    </a>               
                 </div>
             </div>
         </div>
@@ -67,40 +64,19 @@
         <div class="container text-center">
             <h6 class="subtitle">Service</h6>
             <h6 class="section-title mb-4">What I Do</h6>
-            <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias dignissimos. <br> rerum commodi corrupti, temporibus non quam.</p>
+            <p class="mb-5 pb-4"> This is my skills, Or this is things i can do it perfectly. </p>
 
             <div class="row">
-                <div class="col-sm-6 col-md-3 mb-4">
-                    <div class="custom-card card border">
-                        <div class="card-body">
-                            <i class="icon ti-crown"></i>
-                            <h5>UI/UX Design</h5>
+                {% for skill in skills %}
+                    <div class="col-sm-6 col-md-3 mb-4">
+                        <div class="custom-card card border">
+                            <div class="card-body">
+                                <i class="icon ti-{{ skill.desc_for_pic }}"></i>
+                                <h5> {{ skill.my_skills }} </h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-3 mb-4">
-                    <div class="custom-card card border">
-                        <div class="card-body">
-                            <i class="icon ti-desktop"></i>
-                            <h5>Web Design</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3 mb-4">
-                    <div class="custom-card card border">
-                        <div class="card-body">
-                            <i class="icon ti-mobile"></i>
-                            <h5>App Design</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3 mb-4">
-                    <div class="custom-card card border">
-                        <div class="card-body">
-                            <i class="icon ti-bar-chart"></i>
-                            <h5>SEO</h5>
-                        </div>
-                    </div>
+                {% endfor %}                
                 </div>
             </div>
         </div>
@@ -112,33 +88,17 @@
         <div class="container text-center">
             <h6 class="subtitle">Skills</h6>
             <h6 class="section-title mb-4">Why Choose me</h6>
-            <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias dignissimos. <br> rerum commodi corrupti, temporibus non quam.</p>
+            <p class="mb-5 pb-4">These are the skills that I have learned, that I am learning, <br> the extent of my learning and depth in them, and in which I have experience</p>
 
             <div class="row text-left">
+                {% for skill in skills %}
                 <div class="col-sm-6">
-                    <h6 class="mb-3">Photoshop</h6>
+                    <h6 class="mb-3"> {{ skill.my_skills }} </h6>
                     <div class="progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>89%</span></div>
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ skill.precent_finish }};" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>89%</span></div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <h6 class="mb-3">Web Design</h6>
-                    <div class="progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 83%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>83%</span></div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <h6 class="mb-3">App Design</h6>
-                    <div class="progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 95%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>95%</span></div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <h6 class="mb-3">SEO</h6>
-                    <div class="progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>90%</span></div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>  
         </div>
     </section>

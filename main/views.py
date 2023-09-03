@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Personal, Skills, Projects, Logo, CV, Url
+from .models import Personal, Skills, Projects, Logo, CV, Url, Facts
 
 # Create your views here.
 
@@ -10,6 +10,7 @@ def index(request):
     url = Url.objects.all()
     skills = Skills.objects.all()
     projects = Projects.objects.all()
+    facts = Facts.objects.all()
 
     return render(
         request,
@@ -20,6 +21,7 @@ def index(request):
             'cv': cv,
             'urls': url,
             'skills': skills,
-            'projects': projects
+            'projects': projects,
+            'facts': facts,
         }
     )

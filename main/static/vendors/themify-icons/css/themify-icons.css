@@ -23,7 +23,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.ti-wand:before {
+.tiwand:before {
 	content: "\e600";
 }
 .ti-volume:before {

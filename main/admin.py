@@ -21,3 +21,13 @@ class LogoAdmin(admin.ModelAdmin):
 @admin.register(models.Url)
 class UrlAdmin(admin.ModelAdmin):
     list_per_page = 20        
+
+
+@admin.register(models.Facts)
+class FactsAdmin(admin.ModelAdmin):
+    list_per_page = 20           
+
+
+@admin.register(models.Skills)
+class SkillsAdmin(admin.ModelAdmin):
+    list_per_page = 20      
