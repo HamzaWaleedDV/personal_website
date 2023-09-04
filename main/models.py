@@ -203,6 +203,10 @@ ICONS_CHOICES = (
     ("bar-chart", "bar-chart"),
 )
 
+ACTIVE_CHOICES = (
+    ("active", "Active"),
+    (" ", "Inactive")
+)
 
 class Personal(models.Model):
     name = models.CharField(max_length=30)
@@ -251,21 +255,49 @@ class Skills(models.Model):
     def __str__(self):
         return self.my_skills
 
+    
+    class Meta:
+        verbose_name = "Skill"
+        verbose_name_plural = "Skills"
+
 
 class Projects(models.Model):
     title = models.CharField(max_length=50)
-    description = models.TextField(max_length=500)
+    description = models.TextField(max_length=5000)
     url = models.URLField()
     image_for_project = models.ImageField()
 
     def __str__(self):
         return self.title
+
+    
+    class Meta:
+        verbose_name = "Project"
+        verbose_name_plural = "Projects"
     
 
 class Facts(models.Model):
     title = models.CharField(max_length=20)
     number = models.IntegerField()
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = "fact"
         verbose_name_plural = "facts"
+
+
+class Opinion(models.Model):
+    name = models.CharField(max_length=50)
+    message = models.TextField()
+    picture = models.ImageField()
+    career = models.CharField(max_length=60)
+    active = models.CharField(
+        choices=ACTIVE_CHOICES,
+        default="inactive",
+        max_length=100
+    )
+
+    def __str__(self):
+        return self.name

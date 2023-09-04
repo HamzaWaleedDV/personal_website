@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Personal, Skills, Projects, Logo, CV, Url, Facts
+from .models import Personal, Skills, Projects, Logo, CV, Url, Facts, Opinion
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -11,6 +12,7 @@ def index(request):
     skills = Skills.objects.all()
     projects = Projects.objects.all()
     facts = Facts.objects.all()
+    opinions = Opinion.objects.all()
 
     return render(
         request,
@@ -23,5 +25,6 @@ def index(request):
             'skills': skills,
             'projects': projects,
             'facts': facts,
+            'opinions': opinions,
         }
     )

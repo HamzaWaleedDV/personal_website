@@ -31,3 +31,13 @@ class FactsAdmin(admin.ModelAdmin):
 @admin.register(models.Skills)
 class SkillsAdmin(admin.ModelAdmin):
     list_per_page = 20      
+
+
+@admin.register(models.Projects)
+class ProjectsAdmin(admin.ModelAdmin):
+    list_per_page = 20
+
+
+@admin.register(models.Opinion)
+class OpinionAdmin(admin.ModelAdmin):
+    list_per_page = 20

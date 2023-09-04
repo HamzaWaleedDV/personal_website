@@ -6,10 +6,9 @@
             </div>
             <div class="col-sm-6">
                 <div class="socials">
-                    <a class="social-item" href="javascript:void(0)"><i class="ti-facebook"></i></a>
-                    <a class="social-item" href="javascript:void(0)"><i class="ti-google"></i></a>
-                    <a class="social-item" href="javascript:void(0)"><i class="ti-github"></i></a>
-                    <a class="social-item" href="javascript:void(0)"><i class="ti-twitter"></i></a>
+                    {% for url in urls %}
+                        <a target="_blank" class="social-item" href="{{ url.url }}"><i class="ti-{{ url.title }}"></i></a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
